@@ -4,6 +4,8 @@ git clone repository
 
 ### `npm install`
 
+### `npm update`
+
 ## Available Scripts
 
 In the project directory, you can run:
