@@ -38,10 +38,10 @@ class PagesList extends Component {
     });
 
     return (
-      <article>
+      <div>
         <h1>Pages</h1>
         {listpages}
-      </article>
+      </div>
     );
   }
 }

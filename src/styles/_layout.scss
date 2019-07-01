@@ -1,0 +1,7 @@
+.col6 {
+    float: left;
+    width: 50%;
+    @include media(small-only) {
+        width: 100%;
+    }
+  }

@@ -1,0 +1,59 @@
+$duration: 720s;
+
+// Medium screen
+$screen-medium-min: 768px !default;
+
+// Large screen
+$screen-large-min: 960px !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-small-max: ($screen-medium-min - 1) !default;
+$screen-medium-max: ($screen-large-min - 1) !default;
+$screen-large-max: ($screen-large-min - 1) !default;
+
+// Progress Bar Heights
+$progress-bar-height: 0.5em;
+
+// Fonts
+
+$site-brand-font-family: 'ledlightregular';
+// $splash-body-font-family: 'ledlightregular';
+// $overlay-body-font-family: 'saucerbb';
+$overlay-body-font-family: 'exo_2.0extra_light';
+
+$body-font-family: 'Optima';
+$splash-body-font-family: 'saucerbb';
+$icon-font-family: 'icomoon' !important;
+
+// Link colors
+$link_orange: #f4b98e;
+$link_yellow: #ffff00;
+
+// Text colors
+$theme_light_body: #f4b98e;
+$theme_light_h1: #00ffff;
+$theme_light_caption: #00ffff;
+
+$theme_light_underlay: rgba(5, 18, 29, 0.5);
+$theme_light_underlay_high_opacity: rgba(5, 18, 29, 0.75);
+
+// Glow colors
+$glow_green: #49ff18;
+$glow_red: #ff0000;
+$glow_blue: #0000ff;
+$glow_white: #ffffff;
+
+$glow_effect_color_source: $glow_blue;
+$glow_effect_color_destination: $glow_green;
+
+// $glow-effect: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18;
+$glow-effect: 0 0 5px $glow_effect_color_source,
+  0 0 10px $glow_effect_color_source,
+  0 0 15px $glow_effect_color_source,
+  0 0 20px $glow_effect_color_destination,
+  0 0 30px $glow_effect_color_destination,
+  0 0 40px $glow_effect_color_destination,
+  0 0 55px $glow_effect_color_destination,
+  0 0 75px $glow_effect_color_destination;
+
+$semitransparent_white: rgba(255, 255, 255, 0.2);

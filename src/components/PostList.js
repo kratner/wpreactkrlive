@@ -37,10 +37,10 @@ class PostList extends Component {
     });
 
     return (
-      <article>
+      <div>
         <h1>Posts</h1>
         {listposts}
-      </article>
+      </div>
     );
   }
 }
