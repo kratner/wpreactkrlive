@@ -15,8 +15,35 @@ export const queryPages = `{
     }
   }
   `;
+export const queryPosts = `
+  query GET_POSTS($first: Int = 5) {
+    posts(first: $first) {
+      edges {
+        node {
+          postId
+          title
+          date
+          content
+          categories {
+            edges {
+              node {
+                name
+              }
+            }
+          }
+          featuredImage {
+            id
+            sourceUrl
+          }
+        }
+      }
+    }
+  }
+    `;
 export const gqlPages = JSON.stringify({
   query: `${queryPages}`
 });
-export const getPosts = `${appUrl}${appJSONEndpoint}posts`;
+export const gqlPosts = JSON.stringify({
+  query: `${queryPosts}`
+});
 export const appGraphQLUrl = `${appUrl}${appGraphQLEndpoint}`;

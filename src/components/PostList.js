@@ -1,30 +1,34 @@
 import React, { Component } from 'react';
-import { getPosts } from './GetData';
-
+import { appGraphQLUrl, gqlPosts } from './GetData';
 class PostList extends Component {
   state = {
     posts: []
   };
 
   componentDidMount() {
-    let postUrl = `${getPosts}`;
-    fetch(postUrl)
+    let appUrl = `${appGraphQLUrl}`;
+    let queryPosts = `${gqlPosts}`;
+    fetch(appUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: queryPosts
+    })
       .then(data => data.json())
       .then(data => {
         this.setState({
-          posts: data
+          posts: data.data.posts.edges
         });
       });
   }
 
   render() {
-    let listposts = this.state.posts.map((post, index) => {
+    let listposts = this.state.posts.map((node, index) => {
       return (
         <div key={index}>
-          <h4>{post.title.rendered}</h4>
+          <h4>{node.node.title}</h4>
           <p
             dangerouslySetInnerHTML={{
-              __html: post.content.rendered
+              __html: node.node.content
             }}
           />
           {/* dangerouslySetInnerHTML eliminates the html tags */}
