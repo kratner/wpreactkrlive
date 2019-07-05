@@ -8,7 +8,6 @@ class LinksList extends Component {
 
   componentDidMount() {
     let appUrl = `${qryPostsFromLinksCategory}`;
-    console.log(appUrl);
     fetch(appUrl)
       .then(data => data.json())
       .then(data => {
