@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 import './styles/normalize.css';
 import './styles/App.scss';
-import PostList from './components/PostList';
-import PagesList from './components/PagesList';
+import LinksList from './components/LinksLIst';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <div className="col6">
-          <PostList />
-        </div>
-        <div className="col6">
-          <PagesList />
+          <LinksList />
         </div>
       </div>
     );
   }
-} 
+}
 
 export default App;

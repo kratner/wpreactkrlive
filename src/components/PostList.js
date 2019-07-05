@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { appGraphQLUrl, gqlPosts } from './GetDataGraphQL';
+
 class PostList extends Component {
   state = {
     posts: []
