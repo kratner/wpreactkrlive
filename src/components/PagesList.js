@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { appGraphQLUrl, gqlPages } from './GetData';
+import { appGraphQLUrl, gqlPages } from './GetDataGraphQL';
 
 class PagesList extends Component {
   state = {
