@@ -1,3 +1,29 @@
+## WordPress React KRLive
+
+### Headless WordPress CMS with React front end
+
+#### Setup Local WordPress Environment
+
+If you're using Windows, I recommend AMPSS Portable to get a local LAMP stack up and running. Try to match the local development configuration as closely as possible to avoid having to make changes to source files. This way, the GitHub repo should work out-of-the-box (_see installation details below_).
+
+Configure local virtual host to **krlocalwp.localhost**
+
+Install and activate the following plugins:
+
+- Advanced Custom Fields
+
+- ACF to REST API
+
+Upload, install and activate the following custom plugin (_available on GitHub_):
+
+- wp-cms-rest-endpoints.zip
+
+Import WordPress XMS file exported from keithratner.live
+
+#### Setup Local React Environment
+
+_Standard **create-react-app** verbiage to follow_
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 git clone repository
