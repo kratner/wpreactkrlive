@@ -4,7 +4,7 @@
 
 #### Setup Local WordPress Environment
 
-If you're using Windows, I recommend AMPSS Portable to get a local LAMP stack up and running. Try to match the local development configuration as closely as possible to avoid having to make changes to source files. This way, the GitHub repo should work out-of-the-box (_see installation details below_).
+If you're using Windows, I recommend AMPPS Portable to get a local LAMP stack up and running. Try to match the local development configuration as closely as possible to avoid having to make changes to source files. This way, the GitHub repo should work out-of-the-box (_see installation details below_).
 
 Configure local virtual host to **krlocalwp.localhost**
 
