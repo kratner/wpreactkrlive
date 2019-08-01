@@ -2,6 +2,20 @@
 
 ### Headless WordPress CMS with React front end
 
+To switch to live data, WordPres REST API endpoints are defined in
+
+### ./components/GetDataWPRESTAPI.js
+
+```
+//let appUrl = 'https://keithratner.live';
+let appUrlLocalDev = 'http://krlocalwp.localhost';
+let appJSONEndpoint = '/wp-json';
+let appRESTAPITrunk = '/wpcms/v1';
+let RESTEndpointPostsByCategory = '/posts-by-category/';
+export const appQueryUrl = `${appUrlLocalDev}${appJSONEndpoint}${appRESTAPITrunk}${RESTEndpointPostsByCategory}?`;
+export const qryPostsFromLinksCategory = `${appQueryUrl}name=links`;
+```
+
 #### Setup Local WordPress Environment
 
 If you're using Windows, I recommend AMPPS Portable to get a local LAMP stack up and running. Try to match the local development configuration as closely as possible to avoid having to make changes to source files. This way, the GitHub repo should work out-of-the-box (_see installation details below_).

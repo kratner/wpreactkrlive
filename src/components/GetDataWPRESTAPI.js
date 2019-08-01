@@ -1,5 +1,3 @@
-// import React, {Components} from 'react';
-// wpcms/v1/posts-by-category/?name=links
 //let appUrl = 'https://keithratner.live';
 let appUrlLocalDev = 'http://krlocalwp.localhost';
 let appJSONEndpoint = '/wp-json';
