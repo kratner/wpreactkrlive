@@ -22,6 +22,9 @@ If you're using Windows, I recommend AMPPS Portable to get a local LAMP stack up
 
 Configure local virtual host to **krlocalwp.localhost**
 
+Local WordPress installation should be accessible via
+http://krlocalwp.localhost
+
 Install and activate the following plugins:
 
 - Advanced Custom Fields
