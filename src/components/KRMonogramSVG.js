@@ -8,7 +8,7 @@ class KRMonogramSVG extends Component {
           <svg className="icon">
             <use
               className="sprite__monogram"
-              xmlnsXlink="#monogram"
+              xlinkHref="#monogram"
             />
           </svg>
         </div>
