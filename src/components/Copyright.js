@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 
 class Copyright extends Component {
   render() {
-    return <span className="copyright">©2019</span>;
+    let copyrightYear = (() => new Date())().getFullYear();
+    return (
+      <span className="copyright">
+        &copy;{copyrightYear}
+      </span>
+    );
   }
 }
 
