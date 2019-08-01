@@ -8,8 +8,8 @@ class VideoBackground extends Component {
           autoPlay
           loop
           className="video-background__video"
-          muted=""
-          playsInline=""
+          muted
+          playsInline
         >
           <source
             src="/img/20181215_154218.mp4"
