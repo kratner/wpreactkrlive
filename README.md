@@ -25,6 +25,8 @@ Configure local virtual host to **krlocalwp.localhost**
 Local WordPress installation should be accessible via
 http://krlocalwp.localhost
 
+Login to admin via http://krlocalwp.localhost/wp-admin
+
 Install and activate the following plugins:
 
 - Advanced Custom Fields
