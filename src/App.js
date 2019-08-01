@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import './styles/normalize.css';
 import './styles/App.scss';
-import LinksList from './components/LinksLIst';
+import ProjectLinksList from './components/ProjectLinksList';
+import SocialLinksList from './components/SocialLinksList';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="col6">
-          <LinksList />
-        </div>
+        <ProjectLinksList />
+        <SocialLinksList />
       </div>
     );
   }
