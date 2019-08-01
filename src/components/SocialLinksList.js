@@ -40,7 +40,10 @@ class SocialLinksList extends Component {
       });
 
     return (
-      <div class="social-links" id="social-links-container">
+      <div
+        className="social-links"
+        id="social-links-container"
+      >
         <ul>{listSocialLinks}</ul>
       </div>
     );

@@ -3,14 +3,17 @@ import './styles/normalize.css';
 import './styles/App.scss';
 import ProjectLinksList from './components/ProjectLinksList';
 import SocialLinksList from './components/SocialLinksList';
-
+import KRMonogramSVG from './components/KRMonogramSVG';
+import NavBar from './components/NavBar';
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <NavBar />
+        <KRMonogramSVG />
         <div className="splash-container theme-light">
           <div className="front">
-            <div class="brand-title">
+            <div className="brand-title">
               <h1>Keith Ratner</h1>
             </div>
             <ProjectLinksList />

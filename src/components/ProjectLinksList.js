@@ -41,7 +41,7 @@ class ProjectLinksList extends Component {
 
     return (
       <div id="links-container">
-        <div class="link-padding">
+        <div className="link-padding">
           <ul>{listProjectLinks}</ul>
         </div>
       </div>
