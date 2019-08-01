@@ -33,14 +33,18 @@ class ProjectLinksList extends Component {
               target={node.acf.target}
             >
               {node.acf.text}
-              <span className={'icon-' + node.acf.icon} />
+              <span
+                className={
+                  'icon-' + node.acf.icon + ' inline-icon'
+                }
+              />
             </a>
           </li>
         );
       });
 
     return (
-      <div id="links-container">
+      <div id="project-links">
         <div className="link-padding">
           <ul>{listProjectLinks}</ul>
         </div>
