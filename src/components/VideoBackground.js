@@ -5,11 +5,11 @@ class VideoBackground extends Component {
     return (
       <div className="video-background">
         <video
-          autoPlay=""
-          loop=""
+          autoPlay
+          loop
           className="video-background__video"
           muted=""
-          plays-inline=""
+          playsInline=""
         >
           <source
             src="/img/20181215_154218.mp4"
