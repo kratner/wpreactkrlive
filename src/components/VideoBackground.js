@@ -14,6 +14,7 @@ class VideoBackground extends Component {
           <source
             src="/img/20181215_154218.mp4"
             type="video/mp4"
+            className="video-background__video__source"
           />
         </video>
       </div>
