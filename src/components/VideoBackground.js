@@ -1,0 +1,24 @@
+import React, { Component } from 'react';
+
+class VideoBackground extends Component {
+  render() {
+    return (
+      <div className="video-background">
+        <video
+          autoPlay=""
+          loop=""
+          className="video-background__video"
+          muted=""
+          plays-inline=""
+        >
+          <source
+            src="/img/20181215_154218.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+    );
+  }
+}
+
+export default VideoBackground;
