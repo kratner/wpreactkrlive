@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { qryPostsFromLinksCategory } from './GetDataWPRESTAPI';
 
 class BGVideoSwitch extends Component {
   constructor(props) {
@@ -25,13 +26,14 @@ class BGVideoSwitch extends Component {
   // $('[data-ctl=bgvideoswitch]')
 
   componentDidMount() {
-    let arrVideoURLs = [
-      '/img/20181215_154218.mp4',
-      '/img/20190103_151234.mp4',
-      '/img/20190330_184310.mp4',
-      '/img/20190330_190244.mp4',
-      '/img/20190411_191105.mp4'
-    ];
+    let appUrl = `${qryPostsFromLinksCategory}`;
+
+    let arrVideoURLs = ['/img/20181215_154218.mp4'];
+    fetch(appUrl)
+      .then(data => data.json())
+      .then(data => {
+        this.state.populateVideoURLArray(data);
+      });
 
     this.setState({
       videoURLs: arrVideoURLs,
@@ -50,6 +52,19 @@ class BGVideoSwitch extends Component {
           arr[new_random_item]
         );
         el_video[0].load();
+      },
+      populateVideoURLArray: data => {
+        let videoURLArray = data
+          .filter(node => node.acf.type === 'video')
+          .sort((a, b) =>
+            a.acf.weight > b.acf.weight ? 1 : -1
+          )
+          .map((node, index) => {
+            return node.acf.href;
+          });
+        this.setState({
+          videoURLs: videoURLArray
+        });
       }
     });
   }
