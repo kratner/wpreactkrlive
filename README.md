@@ -29,6 +29,8 @@ Login to admin via http://krlocalwp.localhost/wp-admin
 
 Install and activate the following plugins:
 
+- Classic Editor
+
 - Advanced Custom Fields
 
 - ACF to REST API
