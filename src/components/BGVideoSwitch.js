@@ -16,6 +16,13 @@ class BGVideoSwitch extends Component {
       this.state.videoSource
     );
   }
+  toggleBGVideoSwitch(isVisible) {
+    document.getElementsByClassName(
+      'ctl__bgvideoswitch'
+    )[0].style.visibility = isVisible
+      ? 'visible'
+      : 'hidden';
+  }
   state = {
     videoURLs: [],
     switchBackgroundVideo: {},
@@ -26,6 +33,7 @@ class BGVideoSwitch extends Component {
   // $('[data-ctl=bgvideoswitch]')
 
   componentDidMount() {
+    this.toggleBGVideoSwitch(false);
     let appUrl = `${qryPostsFromLinksCategory}`;
 
     let arrVideoURLs = ['/img/20181215_154218.mp4'];
@@ -38,6 +46,7 @@ class BGVideoSwitch extends Component {
           this.state.videoElement,
           this.state.videoSource
         );
+        this.toggleBGVideoSwitch(true);
       });
 
     this.setState({
@@ -70,6 +79,7 @@ class BGVideoSwitch extends Component {
         this.setState({
           videoURLs: videoURLArray
         });
+        //this.state.toggleBGVideoSwitch(true);
       }
     });
   }
@@ -77,7 +87,7 @@ class BGVideoSwitch extends Component {
     return (
       <span
         data-ctl="bgvideoswitch"
-        className="ctl icon-video-camera"
+        className="ctl icon-video-camera ctl__bgvideoswitch"
         title="Switch Video Background"
         onClick={this.handleClick}
       />
