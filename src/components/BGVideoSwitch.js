@@ -33,6 +33,11 @@ class BGVideoSwitch extends Component {
       .then(data => data.json())
       .then(data => {
         this.state.populateVideoURLArray(data);
+        this.state.switchBackgroundVideo(
+          this.state.videoURLs,
+          this.state.videoElement,
+          this.state.videoSource
+        );
       });
 
     this.setState({
