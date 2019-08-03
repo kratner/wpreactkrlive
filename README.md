@@ -2,19 +2,30 @@
 
 View demo at https://kratner.github.io/wpreactkrlive/
 
-### Headless WordPress CMS with React front end
+### "Headless" WordPress CMS with React Front End
 
-To switch to live data, WordPres REST API endpoints are defined in
+This is a React-based UI pulling data from https://keithratner.live
+
+### Technologies Employed
+
+- ReactJS
+- SASS
+- WordPress REST API
+- Custom WordPress REST Endpoint Plugin
+
+### Local Environment Setup Guide
+
+To switch to live data, WordPress REST API endpoints are defined in
 
 ### ./components/GetDataWPRESTAPI.js
 
 ```
-//let appUrl = 'https://keithratner.live';
-let appUrlLocalDev = 'http://krlocalwp.localhost';
+let appUrl = 'https://keithratner.live';
+//let appUrl = 'http://krlocalwp.localhost';
 let appJSONEndpoint = '/wp-json';
 let appRESTAPITrunk = '/wpcms/v1';
 let RESTEndpointPostsByCategory = '/posts-by-category/';
-export const appQueryUrl = `${appUrlLocalDev}${appJSONEndpoint}${appRESTAPITrunk}${RESTEndpointPostsByCategory}?`;
+export const appQueryUrl = `${appUrl}${appJSONEndpoint}${appRESTAPITrunk}${RESTEndpointPostsByCategory}?`;
 export const qryPostsFromLinksCategory = `${appQueryUrl}name=links`;
 ```
 
