@@ -35,7 +35,6 @@ class BGVideoSwitch extends Component {
   componentDidMount() {
     this.toggleBGVideoSwitch(false);
     let appUrl = `${qryPostsFromLinksCategory}`;
-
     let arrVideoURLs = ['/img/20181215_154218.mp4'];
     fetch(appUrl)
       .then(data => data.json())
