@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/wpreactkrlive/static/css/main.6e2ebc01.chunk.css",
+    "main.js": "/wpreactkrlive/static/js/main.45c882c4.chunk.js",
+    "main.js.map": "/wpreactkrlive/static/js/main.45c882c4.chunk.js.map",
+    "runtime~main.js": "/wpreactkrlive/static/js/runtime~main.4bf3e526.js",
+    "runtime~main.js.map": "/wpreactkrlive/static/js/runtime~main.4bf3e526.js.map",
+    "static/js/2.f0927397.chunk.js": "/wpreactkrlive/static/js/2.f0927397.chunk.js",
+    "static/js/2.f0927397.chunk.js.map": "/wpreactkrlive/static/js/2.f0927397.chunk.js.map",
+    "index.html": "/wpreactkrlive/index.html",
+    "precache-manifest.0c2ad5e81bcd8fa18dee367b20829267.js": "/wpreactkrlive/precache-manifest.0c2ad5e81bcd8fa18dee367b20829267.js",
+    "service-worker.js": "/wpreactkrlive/service-worker.js",
+    "static/css/main.6e2ebc01.chunk.css.map": "/wpreactkrlive/static/css/main.6e2ebc01.chunk.css.map",
+    "static/media/App.scss": "/wpreactkrlive/static/media/icomoon.a7d1d9c6.ttf"
+  }
+}
