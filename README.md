@@ -1,5 +1,7 @@
 ## WordPress React KRLive
 
+View demo at https://kratner.github.io/wpreactkrlive/
+
 ### Headless WordPress CMS with React front end
 
 To switch to live data, WordPres REST API endpoints are defined in
