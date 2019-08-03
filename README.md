@@ -15,6 +15,8 @@ This is a React-based UI pulling data from https://keithratner.live
 
 ### Local Environment Setup Guide
 
+### `npm run deploy` to publish to GitHub Pages
+
 To switch to live data, WordPress REST API endpoints are defined in
 
 ### ./components/GetDataWPRESTAPI.js
