@@ -54,7 +54,7 @@ Upload, install and activate the following custom plugin (_available on GitHub_)
 
 - wp-cms-rest-endpoints.zip
 
-Import WordPress XMS file exported from keithratner.live
+Import WordPress XML file exported from keithratner.live
 
 #### Setup Local React Environment
 
