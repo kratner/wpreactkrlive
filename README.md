@@ -4,7 +4,7 @@ View demo at https://kratner.github.io/wpreactkrlive/
 
 ### "Headless" WordPress CMS with React Front End
 
-This is a React-based UI pulling data from https://keithratner.live
+This is a ReactJS-based UI pulling data from https://keithratner.live, populating primary links, social media links, and video backgrounds. Click on the movie icon in the top navigation to randomly switch between video backgrounds.
 
 ### Technologies Employed
 
