@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { appGraphQLUrl, gqlPosts } from './GetDataGraphQL';
+import { appGraphQLUrl, gqlPosts } from './DataAccess/GetDataGraphQL';
 
 class PostList extends Component {
   state = {

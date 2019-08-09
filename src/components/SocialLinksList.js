@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { qryPostsFromLinksCategory } from './GetDataWPRESTAPI';
+import { qryPostsFromLinksCategory } from './DataAccess/GetDataWPRESTAPI';
 
 class SocialLinksList extends Component {
   state = {
