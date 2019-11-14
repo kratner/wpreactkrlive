@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import { qryPostsFromLinksCategory } from './DataAccess/GetDataWPRESTAPI';
+import React, { Component } from "react";
+import { qryPostsFromLinksCategory } from "./DataAccess/GetDataWPRESTAPI";
+import { LinearProgress } from "@material-ui/core";
 
 class SocialLinksList extends Component {
   state = {
@@ -19,10 +20,8 @@ class SocialLinksList extends Component {
 
   render() {
     let listSocialLinks = this.state.posts
-      .filter(node => node.acf.type === 'social')
-      .sort((a, b) =>
-        a.acf.weight > b.acf.weight ? 1 : -1
-      )
+      .filter(node => node.acf.type === "social")
+      .sort((a, b) => (a.acf.weight > b.acf.weight ? 1 : -1))
       .map((node, index) => {
         return (
           <li key={index}>
@@ -33,18 +32,19 @@ class SocialLinksList extends Component {
               target={node.acf.target}
             >
               {node.acf.text}
-              <span className={'icon-' + node.acf.icon} />
+              <span className={"icon-" + node.acf.icon} />
             </a>
           </li>
         );
       });
 
     return (
-      <div
-        className="social-links"
-        id="social-links-container"
-      >
-        <ul>{listSocialLinks}</ul>
+      <div className="social-links" id="social-links-container">
+        {listSocialLinks.length === 0 ? (
+          <LinearProgress className="progress" />
+        ) : (
+          <ul>{listSocialLinks}</ul>
+        )}
       </div>
     );
   }
