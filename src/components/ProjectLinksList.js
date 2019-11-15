@@ -37,7 +37,6 @@ class ProjectLinksList extends Component {
           </li>
         );
       });
-    debugger;
     return (
       <div id="project-links">
         <div className="link-padding">

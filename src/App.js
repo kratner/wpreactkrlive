@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import './styles/normalize.css';
-import './styles/App.scss';
-import ProjectLinksList from './components/ProjectLinksList';
-import SocialLinksList from './components/SocialLinksList';
-import KRMonogramSVG from './components/KRMonogramSVG';
-import NavBar from './components/NavBar';
-import VideoBackground from './components/VideoBackground';
+import React, { Component } from "react";
+import "./styles/normalize.css";
+import "./styles/App.scss";
+import ProjectLinksList from "./components/ProjectLinksList";
+import SocialLinksList from "./components/SocialLinksList";
+import MainImageGallery from "./components/MainImageGallery";
+import KRMonogramSVG from "./components/KRMonogramSVG";
+import NavBar from "./components/NavBar";
+import VideoBackground from "./components/VideoBackground";
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
               <h1>Keith Ratner</h1>
             </div>
             <ProjectLinksList />
+            <MainImageGallery thumbnailPosition="top" />
             <SocialLinksList />
           </div>
         </div>

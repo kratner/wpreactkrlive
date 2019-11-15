@@ -68,7 +68,7 @@
 }
 
 .slide:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -230,5 +230,10 @@ hr {
 }
 use.sprite__monogram {
   fill: $theme_light_body;
-  filter: url('#drop-shadow');
+  filter: url("#drop-shadow");
+}
+
+.image-gallery {
+  width: 75%;
+  margin: auto;
 }

@@ -1,3 +1,4 @@
-@import 'normalize', 'base', 'variables', 'mixins', 'colors',
-  'mediaqueries', 'fonts', 'typography', 'layout',
-  'animation', 'visualizations', 'formcontrols';
+@import "normalize", "base", "variables", "mixins", "colors", "mediaqueries",
+  "fonts", "typography", "layout", "animation", "visualizations", "formcontrols";
+
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
