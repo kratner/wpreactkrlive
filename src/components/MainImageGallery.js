@@ -56,7 +56,15 @@ class MainImageGallery extends Component {
         ) : (
           <div>
             <h3>{this.props.galleryTitle}</h3>
-            <p>{this.props.galleryDescription}</p>
+            <p>
+              <a
+                href={this.props.galleryLinkURL}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                {this.props.galleryLinkText}
+              </a>
+            </p>
             <ImageGallery
               className="image-gallery"
               items={images}

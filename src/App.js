@@ -21,7 +21,12 @@ class App extends Component {
               <h1>Keith Ratner</h1>
             </div>
             <ProjectLinksList />
-            <MainImageGallery thumbnailPosition="top" />
+            <MainImageGallery
+              galleryTitle="Hand-Drawn"
+              galleryLinkURL="https://keithratner.live/shop"
+              galleryLinkText="Visit the Store"
+              thumbnailPosition="left"
+            />
             <SocialLinksList />
           </div>
         </div>
