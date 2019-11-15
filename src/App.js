@@ -3,6 +3,7 @@ import "./styles/normalize.css";
 import "./styles/App.scss";
 import ProjectLinksList from "./components/ProjectLinksList";
 import SocialLinksList from "./components/SocialLinksList";
+import OECodeSamplesList from "./components/OECodeSamplesList";
 import MainImageGallery from "./components/MainImageGallery";
 import KRMonogramSVG from "./components/KRMonogramSVG";
 import NavBar from "./components/NavBar";
@@ -27,6 +28,12 @@ class App extends Component {
               galleryLinkTitle="Purchase Prints Online"
               galleryLinkText="Visit the Store"
               thumbnailPosition="left"
+            />
+            <OECodeSamplesList
+              codeSamplesTitle="VBA Code Samples"
+              codeSamplesExternalSiteURL="https://optionexplicit.live"
+              codeSamplesExternalSiteTitle="Visit Option Explicit"
+              codeSamplesExternalSiteName="Option Explicit"
             />
             <SocialLinksList />
           </div>
