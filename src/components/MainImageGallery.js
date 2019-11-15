@@ -49,12 +49,12 @@ class MainImageGallery extends Component {
     return (
       <div id="image-gallery-container">
         {images.length === 0 ? (
-          <div>
+          <React.Fragment>
             {/* <LinearProgress className="progress" /> */}
             <CircularProgress className="progress" />
-          </div>
+          </React.Fragment>
         ) : (
-          <div>
+          <React.Fragment>
             <h3>{this.props.galleryTitle}</h3>
             <p>
               <a
@@ -70,7 +70,7 @@ class MainImageGallery extends Component {
               items={images}
               thumbnailPosition={this.props.thumbnailPosition}
             />
-          </div>
+          </React.Fragment>
         )}
       </div>
     );
