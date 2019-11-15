@@ -23,13 +23,15 @@ class App extends Component {
             </div>
             <ProjectLinksList />
             <MainImageGallery
-              galleryTitle="Hand-Drawn"
+              sectionButtonLabel="Load Art Gallery"
+              galleryTitle="Art Gallery"
               galleryLinkURL="https://keithratner.live/shop"
               galleryLinkTitle="Purchase Prints Online"
               galleryLinkText="Visit the Store"
               thumbnailPosition="left"
             />
             <OECodeSamplesList
+              sectionButtonLabel="Load VBA Code Samples"
               codeSamplesTitle="VBA Code Samples"
               codeSamplesExternalSiteURL="https://optionexplicit.live"
               codeSamplesExternalSiteTitle="Visit Option Explicit"

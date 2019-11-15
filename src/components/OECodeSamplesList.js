@@ -1,22 +1,29 @@
 import React, { Component } from "react";
 import { qryPostsFromOEDistributionCategory } from "./DataAccess/GetDataWPRESTAPI";
-import { LinearProgress } from "@material-ui/core";
+import { Button, LinearProgress } from "@material-ui/core";
 
 class OECodeSamplesList extends Component {
   state = {
-    posts: []
+    posts: [],
+    loadState: "inactive"
   };
 
-  componentDidMount() {
+  loadOECodeSamplesList() {
     let appUrl = `${qryPostsFromOEDistributionCategory}`;
+    this.setState({
+      loadState: "loading"
+    });
     fetch(appUrl)
       .then(data => data.json())
       .then(data => {
         this.setState({
-          posts: data
+          posts: data,
+          loadState: "loaded"
         });
       });
   }
+
+  componentDidMount() {}
 
   render() {
     let OECodeSamples = this.state.posts
@@ -36,30 +43,53 @@ class OECodeSamplesList extends Component {
           content: content
         };
       });
-    return (
-      <div id="oe-code-samples">
-        {OECodeSamples.length === 0 ? (
-          <React.Fragment>
-            <LinearProgress className="progress" />
-          </React.Fragment>
-        ) : (
-          <React.Fragment>
-            <h3>{this.props.codeSamplesTitle}</h3>
-            <p>
-              <a
-                href={this.props.codeSamplesExternalSiteURL}
-                rel="noopener noreferrer"
-                target="_blank"
-                title={this.props.codeSamplesExternalSiteTitle}
+    switch (this.state.loadState) {
+      case "inactive":
+        return (
+          <div id="oe-code-samples">
+            <React.Fragment>
+              <Button
+                color="primary"
+                onClick={() => {
+                  this.loadOECodeSamplesList();
+                }}
+                size="large"
+                variant="contained"
               >
-                {this.props.codeSamplesExternalSiteName}
-              </a>
-            </p>
-            <p>Coming Soon: {OECodeSamples.length} VBA Procedures</p>
-          </React.Fragment>
-        )}
-      </div>
-    );
+                {this.props.sectionButtonLabel}
+              </Button>
+            </React.Fragment>
+          </div>
+        );
+      case "loading":
+        return (
+          <div id="oe-code-samples">
+            <React.Fragment>
+              <LinearProgress className="progress" />
+            </React.Fragment>
+          </div>
+        );
+      case "loaded":
+        return (
+          <div id="oe-code-samples">
+            <React.Fragment>
+              <h3>{this.props.codeSamplesTitle}</h3>
+              <p>
+                <a
+                  href={this.props.codeSamplesExternalSiteURL}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  title={this.props.codeSamplesExternalSiteTitle}
+                >
+                  {this.props.codeSamplesExternalSiteName}
+                </a>
+              </p>
+              <p>Coming Soon: {OECodeSamples.length} VBA Procedures</p>
+            </React.Fragment>
+          </div>
+        );
+      default:
+    }
   }
 }
 

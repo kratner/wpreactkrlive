@@ -1,33 +1,31 @@
 import React, { Component } from "react";
 //import { LinearProgress } from "@material-ui/core";
-import { CircularProgress } from "@material-ui/core";
+import { Button, CircularProgress } from "@material-ui/core";
 import { qryPostsFromPrintsCategory } from "./DataAccess/GetDataWPRESTAPI";
-// # SCSS
-
-// # CSS
-//@import "~react-image-gallery/styles/css/image-gallery.css";
-
-// # Stylesheet with no icons
-//node_modules/react-image-gallery/styles/scss/image-gallery-no-icon.scss
-//node_modules/react-image-gallery/styles/css/image-gallery-no-icon.css
-
 import ImageGallery from "react-image-gallery";
 
 class MainImageGallery extends Component {
   state = {
-    images: []
+    images: [],
+    loadState: "inactive"
   };
 
-  componentDidMount() {
+  loadMainImageGallery() {
     let appUrl = `${qryPostsFromPrintsCategory}`;
+    this.setState({
+      loadState: "loading"
+    });
     fetch(appUrl)
       .then(data => data.json())
       .then(data => {
         this.setState({
-          images: data
+          images: data,
+          loadState: "loaded"
         });
       });
   }
+
+  componentDidMount() {}
 
   render() {
     let images = this.state.images
@@ -46,35 +44,56 @@ class MainImageGallery extends Component {
           description: title
         };
       });
-    return (
-      <div id="image-gallery-container">
-        {images.length === 0 ? (
-          <React.Fragment>
+    switch (this.state.loadState) {
+      case "inactive":
+        return (
+          <div id="image-gallery-container">
+            <React.Fragment>
+              <Button
+                color="primary"
+                onClick={() => {
+                  this.loadMainImageGallery();
+                }}
+                size="large"
+                variant="contained"
+              >
+                {this.props.sectionButtonLabel}
+              </Button>
+            </React.Fragment>
+          </div>
+        );
+      case "loading":
+        return (
+          <div id="image-gallery-container">
             {/* <LinearProgress className="progress" /> */}
             <CircularProgress className="progress" />
-          </React.Fragment>
-        ) : (
-          <React.Fragment>
-            <h3>{this.props.galleryTitle}</h3>
-            <p>
-              <a
-                href={this.props.galleryLinkURL}
-                rel="noopener noreferrer"
-                target="_blank"
-                title={this.props.galleryLinkTitle}
-              >
-                {this.props.galleryLinkText}
-              </a>
-            </p>
-            <ImageGallery
-              className="image-gallery"
-              items={images}
-              thumbnailPosition={this.props.thumbnailPosition}
-            />
-          </React.Fragment>
-        )}
-      </div>
-    );
+          </div>
+        );
+      case "loaded":
+        return (
+          <div id="image-gallery-container">
+            <React.Fragment>
+              <h3>{this.props.galleryTitle}</h3>
+              <p>
+                <a
+                  href={this.props.galleryLinkURL}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  title={this.props.galleryLinkTitle}
+                >
+                  {this.props.galleryLinkText}
+                </a>
+              </p>
+              <ImageGallery
+                className="image-gallery"
+                items={images}
+                thumbnailPosition={this.props.thumbnailPosition}
+              />
+            </React.Fragment>
+          </div>
+        );
+      default:
+    }
   }
 }
 
