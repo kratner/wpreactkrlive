@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { LinearProgress } from "@material-ui/core";
+//import { LinearProgress } from "@material-ui/core";
+import { CircularProgress } from "@material-ui/core";
 import { qryPostsFromPrintsCategory } from "./DataAccess/GetDataWPRESTAPI";
 // # SCSS
 
@@ -46,14 +47,22 @@ class MainImageGallery extends Component {
         };
       });
     return (
-      <div className="image-gallery" id="image-gallery-container">
+      <div id="image-gallery-container">
         {images.length === 0 ? (
-          <LinearProgress className="progress" />
+          <div>
+            {/* <LinearProgress className="progress" /> */}
+            <CircularProgress className="progress" />
+          </div>
         ) : (
-          <ImageGallery
-            items={images}
-            thumbnailPosition={this.props.thumbnailPosition}
-          />
+          <div>
+            <h3>{this.props.galleryTitle}</h3>
+            <p>{this.props.galleryDescription}</p>
+            <ImageGallery
+              className="image-gallery"
+              items={images}
+              thumbnailPosition={this.props.thumbnailPosition}
+            />
+          </div>
         )}
       </div>
     );
