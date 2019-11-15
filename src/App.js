@@ -24,6 +24,7 @@ class App extends Component {
             <MainImageGallery
               galleryTitle="Hand-Drawn"
               galleryLinkURL="https://keithratner.live/shop"
+              galleryLinkTitle="Purchase Prints Online"
               galleryLinkText="Visit the Store"
               thumbnailPosition="left"
             />

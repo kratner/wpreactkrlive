@@ -61,6 +61,7 @@ class MainImageGallery extends Component {
                 href={this.props.galleryLinkURL}
                 rel="noopener noreferrer"
                 target="_blank"
+                title={this.props.galleryLinkTitle}
               >
                 {this.props.galleryLinkText}
               </a>

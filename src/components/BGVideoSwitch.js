@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import { qryPostsFromLinksCategory } from './DataAccess/GetDataWPRESTAPI';
+import React, { Component } from "react";
+import { qryPostsFromLinksCategory } from "./DataAccess/GetDataWPRESTAPI";
+import SwitchVideoIcon from "@material-ui/icons/SwitchVideo";
 
 class BGVideoSwitch extends Component {
   constructor(props) {
@@ -18,10 +19,8 @@ class BGVideoSwitch extends Component {
   }
   toggleBGVideoSwitch(isVisible) {
     document.getElementsByClassName(
-      'ctl__bgvideoswitch'
-    )[0].style.visibility = isVisible
-      ? 'visible'
-      : 'hidden';
+      "ctl__bgvideoswitch"
+    )[0].style.visibility = isVisible ? "visible" : "hidden";
   }
   state = {
     videoURLs: [],
@@ -35,7 +34,7 @@ class BGVideoSwitch extends Component {
   componentDidMount() {
     this.toggleBGVideoSwitch(false);
     let appUrl = `${qryPostsFromLinksCategory}`;
-    let arrVideoURLs = ['/img/20181215_154218.mp4'];
+    let arrVideoURLs = ["/img/20181215_154218.mp4"];
     fetch(appUrl)
       .then(data => data.json())
       .then(data => {
@@ -50,28 +49,19 @@ class BGVideoSwitch extends Component {
 
     this.setState({
       videoURLs: arrVideoURLs,
-      videoElement: document.getElementsByClassName(
-        'video-background__video'
-      ),
+      videoElement: document.getElementsByClassName("video-background__video"),
       videoSource: document.getElementsByClassName(
-        'video-background__video__source'
+        "video-background__video__source"
       ),
       switchBackgroundVideo: (arr, el_video, el_source) => {
-        let new_random_item = Math.floor(
-          Math.random() * arr.length
-        );
-        el_source[0].setAttribute(
-          'src',
-          arr[new_random_item]
-        );
+        let new_random_item = Math.floor(Math.random() * arr.length);
+        el_source[0].setAttribute("src", arr[new_random_item]);
         el_video[0].load();
       },
       populateVideoURLArray: data => {
         let videoURLArray = data
-          .filter(node => node.acf.type === 'video')
-          .sort((a, b) =>
-            a.acf.weight > b.acf.weight ? 1 : -1
-          )
+          .filter(node => node.acf.type === "video")
+          .sort((a, b) => (a.acf.weight > b.acf.weight ? 1 : -1))
           .map((node, index) => {
             return node.acf.href;
           });
@@ -84,12 +74,16 @@ class BGVideoSwitch extends Component {
   }
   render() {
     return (
-      <span
-        data-ctl="bgvideoswitch"
-        className="ctl icon-video-camera ctl__bgvideoswitch"
-        title="Switch Video Background"
-        onClick={this.handleClick}
-      />
+      <React.Fragment>
+        <span
+          data-ctl="bgvideoswitch"
+          className="ctl ctl__bgvideoswitch"
+          title="Switch Video Background"
+          onClick={this.handleClick}
+        >
+          <SwitchVideoIcon fontSize="large" />
+        </span>
+      </React.Fragment>
     );
   }
 }
