@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, CircularProgress } from "@material-ui/core";
 import { qryPostsFromPrintsCategory } from "./DataAccess/GetDataWPRESTAPI";
 import ImageGallery from "react-image-gallery";
+import OpenInNewIcon from "@material-ui/icons/OpenInNew";
 
 class MainImageGallery extends Component {
   state = {
@@ -80,7 +81,7 @@ class MainImageGallery extends Component {
                   target="_blank"
                   title={this.props.galleryLinkTitle}
                 >
-                  {this.props.galleryLinkText}
+                  {this.props.galleryLinkText} <OpenInNewIcon />
                 </a>
               </p>
               <ImageGallery

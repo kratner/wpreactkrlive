@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { qryPostsFromOEDistributionCategory } from "./DataAccess/GetDataWPRESTAPI";
 import { Button, CircularProgress } from "@material-ui/core";
+import OpenInNewIcon from "@material-ui/icons/OpenInNew";
 
 class OECodeSamplesList extends Component {
   state = {
@@ -83,7 +84,7 @@ class OECodeSamplesList extends Component {
                   target="_blank"
                   title={this.props.codeSamplesExternalSiteTitle}
                 >
-                  {this.props.codeSamplesExternalSiteName}
+                  {this.props.codeSamplesExternalSiteName} <OpenInNewIcon />
                 </a>
               </p>
               <p>Coming Soon: {OECodeSamples.length} VBA Procedures</p>
