@@ -46,9 +46,10 @@ class OECodeSamplesList extends Component {
     switch (this.state.loadState) {
       case "inactive":
         return (
-          <div id="oe-code-samples">
+          <div id="oe-code-samples-container">
             <React.Fragment>
               <Button
+                className="button-standard"
                 color="primary"
                 onClick={() => {
                   this.loadOECodeSamplesList();
@@ -63,7 +64,7 @@ class OECodeSamplesList extends Component {
         );
       case "loading":
         return (
-          <div id="oe-code-samples">
+          <div id="oe-code-samples-container">
             <React.Fragment>
               <LinearProgress className="progress" />
             </React.Fragment>
@@ -71,7 +72,7 @@ class OECodeSamplesList extends Component {
         );
       case "loaded":
         return (
-          <div id="oe-code-samples">
+          <div id="oe-code-samples-container">
             <React.Fragment>
               <h3>{this.props.codeSamplesTitle}</h3>
               <p>

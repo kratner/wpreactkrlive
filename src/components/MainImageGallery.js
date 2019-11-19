@@ -50,6 +50,7 @@ class MainImageGallery extends Component {
           <div id="image-gallery-container">
             <React.Fragment>
               <Button
+                className="button-standard"
                 color="primary"
                 onClick={() => {
                   this.loadMainImageGallery();

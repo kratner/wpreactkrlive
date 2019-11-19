@@ -232,15 +232,23 @@ use.sprite__monogram {
   fill: $theme_light_body;
   filter: url("#drop-shadow");
 }
+#image-gallery-container,
+#oe-code-samples-container {
+  padding: 1em 0;
+}
 #image-gallery-container {
   width: 100%;
   background-color: $theme_light_underlay;
+  .image-gallery {
+    width: 75%;
+    margin: 1em auto;
+  }
+}
+#image-gallery-container #oe-code-samples {
   padding: 1em 0;
 }
-#image-gallery-container .image-gallery {
-  width: 75%;
-  margin: 1em auto;
-}
-#oe-code-samples {
-  padding: 1em 0;
+.front {
+  .button-standard {
+    font-size: 0.75em;
+  }
 }
