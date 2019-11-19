@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import { LinearProgress } from "@material-ui/core";
 import { Button, CircularProgress } from "@material-ui/core";
 import { qryPostsFromPrintsCategory } from "./DataAccess/GetDataWPRESTAPI";
 import ImageGallery from "react-image-gallery";
@@ -66,7 +65,6 @@ class MainImageGallery extends Component {
       case "loading":
         return (
           <div id="image-gallery-container">
-            {/* <LinearProgress className="progress" /> */}
             <CircularProgress className="progress" />
           </div>
         );

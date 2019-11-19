@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { qryPostsFromOEDistributionCategory } from "./DataAccess/GetDataWPRESTAPI";
-import { Button, LinearProgress } from "@material-ui/core";
+import { Button, CircularProgress } from "@material-ui/core";
 
 class OECodeSamplesList extends Component {
   state = {
@@ -66,11 +66,12 @@ class OECodeSamplesList extends Component {
         return (
           <div id="oe-code-samples-container">
             <React.Fragment>
-              <LinearProgress className="progress" />
+              <CircularProgress className="progress" />
             </React.Fragment>
           </div>
         );
       case "loaded":
+        /* content, externalLink, title */
         return (
           <div id="oe-code-samples-container">
             <React.Fragment>
