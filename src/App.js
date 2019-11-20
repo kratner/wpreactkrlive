@@ -5,6 +5,7 @@ import ProjectLinksList from "./components/ProjectLinksList";
 import SocialLinksList from "./components/SocialLinksList";
 import OECodeSamplesList from "./components/OECodeSamplesList";
 import MainImageGallery from "./components/MainImageGallery";
+import CoverflowGallery from "./components/CoverflowGallery";
 import KRMonogramSVG from "./components/KRMonogramSVG";
 import NavBar from "./components/NavBar";
 import VideoBackground from "./components/VideoBackground";
@@ -21,8 +22,15 @@ class App extends Component {
             <div className="brand-title">
               <h1>Keith Ratner</h1>
             </div>
+            <CoverflowGallery
+              sectionButtonLabel="Load Coverflow Gallery"
+              galleryTitle="Art Gallery"
+              galleryLinkURL="https://keithratner.live/shop"
+              galleryLinkTitle="Purchase Prints Online"
+              galleryLinkText="Visit the Store"
+            />
             <MainImageGallery
-              sectionButtonLabel="Load Art Gallery"
+              sectionButtonLabel="Load Image Gallery"
               galleryTitle="Art Gallery"
               galleryLinkURL="https://keithratner.live/shop"
               galleryLinkTitle="Purchase Prints Online"
