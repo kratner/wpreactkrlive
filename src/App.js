@@ -21,7 +21,6 @@ class App extends Component {
             <div className="brand-title">
               <h1>Keith Ratner</h1>
             </div>
-            <ProjectLinksList />
             <MainImageGallery
               sectionButtonLabel="Load Art Gallery"
               galleryTitle="Art Gallery"
@@ -38,6 +37,7 @@ class App extends Component {
               codeSamplesExternalSiteName="Option Explicit"
             />
             <SocialLinksList />
+            <ProjectLinksList projectLinksTitle="Suggested Links" />
           </div>
         </div>
       </div>

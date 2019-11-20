@@ -49,6 +49,7 @@ class ProjectLinksList extends Component {
       case "loaded":
         return (
           <div id="project-links-container">
+            <h3>{this.props.projectLinksTitle}</h3>
             <ul>{listProjectLinks}</ul>
           </div>
         );

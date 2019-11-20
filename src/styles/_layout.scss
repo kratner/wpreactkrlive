@@ -232,7 +232,11 @@ use.sprite__monogram {
 #project-links-container,
 #image-gallery-container,
 #oe-code-samples-container {
+  line-height: 1.25em;
   padding: 1em 0;
+  h3 {
+    margin-bottom: 0.35em;
+  }
 }
 #image-gallery-container {
   width: 100%;
