@@ -56,6 +56,7 @@ class OECodeSamplesList extends Component {
                   this.loadOECodeSamplesList();
                 }}
                 size="large"
+                title={this.props.sectionButtonLabel}
                 variant="contained"
               >
                 {this.props.sectionButtonLabel}

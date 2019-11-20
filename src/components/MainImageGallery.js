@@ -56,6 +56,7 @@ class MainImageGallery extends Component {
                   this.loadMainImageGallery();
                 }}
                 size="large"
+                title={this.props.sectionButtonLabel}
                 variant="contained"
               >
                 {this.props.sectionButtonLabel}

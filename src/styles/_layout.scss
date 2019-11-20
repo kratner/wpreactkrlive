@@ -144,9 +144,6 @@ hr {
   margin-bottom: 0.5em;
 }
 
-.link-padding {
-  padding: 0.5em 0;
-}
 .brand-title {
   background-color: $semitransparent_white;
   padding: 0.25em 0 0.1em;
@@ -232,6 +229,7 @@ use.sprite__monogram {
   fill: $theme_light_body;
   filter: url("#drop-shadow");
 }
+#project-links-container,
 #image-gallery-container,
 #oe-code-samples-container {
   padding: 1em 0;
@@ -241,6 +239,9 @@ use.sprite__monogram {
   background-color: $theme_light_underlay;
   .image-gallery {
     width: 75%;
+    @include media(large) {
+      width: 50%;
+    }
     margin: 1em auto;
   }
 }

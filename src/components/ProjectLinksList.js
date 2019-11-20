@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import { CircularProgress } from "@material-ui/core";
 import { qryPostsFromLinksCategory } from "./DataAccess/GetDataWPRESTAPI";
-import { LinearProgress } from "@material-ui/core";
 
 class ProjectLinksList extends Component {
   state = {
-    posts: []
+    posts: [],
+    loadState: "loading"
   };
 
   componentDidMount() {
@@ -13,7 +14,8 @@ class ProjectLinksList extends Component {
       .then(data => data.json())
       .then(data => {
         this.setState({
-          posts: data
+          posts: data,
+          loadState: "loaded"
         });
       });
   }
@@ -37,17 +39,21 @@ class ProjectLinksList extends Component {
           </li>
         );
       });
-    return (
-      <div id="project-links">
-        <div className="link-padding">
-          {listProjectLinks.length === 0 ? (
-            <LinearProgress className="progress" />
-          ) : (
+    switch (this.state.loadState) {
+      case "loading":
+        return (
+          <div id="project-links-container">
+            <CircularProgress className="progress" />
+          </div>
+        );
+      case "loaded":
+        return (
+          <div id="project-links-container">
             <ul>{listProjectLinks}</ul>
-          )}
-        </div>
-      </div>
-    );
+          </div>
+        );
+      default:
+    }
   }
 }
 
