@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     float: "left",
     */
     "@media (max-width: 600px)": {
-      width: "100%"
+      width: "96.5%"
     },
     "@media (min-width: 1200px)": {
       width: "31.7%"
