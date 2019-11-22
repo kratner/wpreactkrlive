@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { qryPostsFromOEDistributionCategory } from "./DataAccess/GetDataWPRESTAPI";
 import { Button, CircularProgress } from "@material-ui/core";
 import OpenInNewIcon from "@material-ui/icons/OpenInNew";
+import SimpleCard from "./SimpleCard";
 
 class OECodeSamplesList extends Component {
   state = {
@@ -24,6 +25,10 @@ class OECodeSamplesList extends Component {
       });
   }
 
+  handleOECodeCardClick(externalLink) {
+    window.open(externalLink, "_blank");
+  }
+
   componentDidMount() {}
 
   render() {
@@ -34,62 +39,69 @@ class OECodeSamplesList extends Component {
         a.acf.weight > b.acf.weight ? 1 : -1
       )
       */
+      .sort((a, b) => (a.title > b.title ? 1 : -1))
       .map((node, index) => {
-        let title = node.title;
+        let title = node.title.rendered;
         let externalLink = node.link;
         let content = node.content.rendered;
-        return {
-          title: title,
-          externalLink: externalLink,
-          content: content
-        };
+        let buttonLabel = "View on Website";
+        let buttonTitle = "Go to " + externalLink;
+        return (
+          <SimpleCard
+            contentTitle={title}
+            mainContent={content}
+            externalLink={externalLink}
+            linkButtonLabel={buttonLabel}
+            linkButtonTitle={buttonTitle}
+            onClick={() => {
+              this.handleOECodeCardClick(externalLink);
+            }}
+          />
+        );
       });
     switch (this.state.loadState) {
       case "inactive":
         return (
           <div id="oe-code-samples-container">
-            <React.Fragment>
-              <Button
-                className="button-standard"
-                color="primary"
-                onClick={() => {
-                  this.loadOECodeSamplesList();
-                }}
-                size="large"
-                title={this.props.sectionButtonLabel}
-                variant="contained"
-              >
-                {this.props.sectionButtonLabel}
-              </Button>
-            </React.Fragment>
+            <Button
+              className="button-standard"
+              color="primary"
+              onClick={() => {
+                this.loadOECodeSamplesList();
+              }}
+              size="large"
+              title={this.props.sectionButtonLabel}
+              variant="contained"
+            >
+              {this.props.sectionButtonLabel}
+            </Button>
           </div>
         );
       case "loading":
         return (
           <div id="oe-code-samples-container">
-            <React.Fragment>
-              <CircularProgress className="progress" />
-            </React.Fragment>
+            <CircularProgress className="progress" />
           </div>
         );
       case "loaded":
-        /* content, externalLink, title */
         return (
           <div id="oe-code-samples-container">
-            <React.Fragment>
-              <h3>{this.props.codeSamplesTitle}</h3>
-              <p>
-                <a
-                  href={this.props.codeSamplesExternalSiteURL}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  title={this.props.codeSamplesExternalSiteTitle}
-                >
-                  {this.props.codeSamplesExternalSiteName} <OpenInNewIcon />
-                </a>
-              </p>
-              <p>Coming Soon: {OECodeSamples.length} VBA Procedures</p>
-            </React.Fragment>
+            <h3>{this.props.codeSamplesTitle}</h3>
+            <p>
+              <a
+                href={this.props.codeSamplesExternalSiteURL}
+                rel="noopener noreferrer"
+                target="_blank"
+                title={this.props.codeSamplesExternalSiteTitle}
+              >
+                {this.props.codeSamplesExternalSiteName}{" "}
+                <OpenInNewIcon
+                  fontSize={"inherit"}
+                  style={{ marginBottom: "-0.1em" }}
+                />
+              </a>
+            </p>
+            <div className="oe-code-samples">{OECodeSamples}</div>
           </div>
         );
       default:

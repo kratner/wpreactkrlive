@@ -9,6 +9,6 @@ export const appQueryUrl = `${appUrl}${appJSONEndpoint}${appRESTAPITrunk}${RESTE
 export const appOEQueryUrl = `${appOptionExplicitUrl}${appJSONEndpoint}${appRESTAPITrunk}${RESTEndpointPostsByCategory}?`;
 export const qryPostsFromLinksCategory = `${appQueryUrl}name=links`;
 export const qryPostsFromPrintsCategory = `${appQueryUrl}name=prints`;
-export const qryPostsFromOEDistributionCategory = `${appOEQueryUrl}name=distribution`;
+export const qryPostsFromOEDistributionCategory = `${appOEQueryUrl}name=code`;
 
 //https://keithratner.live/wp-json/wpcms/v1/posts-by-category?name=prints
