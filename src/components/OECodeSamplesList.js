@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { qryPostsFromOEDistributionCategory } from "./DataAccess/GetDataWPRESTAPI";
-import { Button, CircularProgress } from "@material-ui/core";
+import { CircularProgress } from "@material-ui/core";
 import OpenInNewIcon from "@material-ui/icons/OpenInNew";
 import SimpleCard from "./SimpleCard";
+import LiveButton from "./LiveButton";
 
 class OECodeSamplesList extends Component {
   state = {
@@ -63,7 +64,7 @@ class OECodeSamplesList extends Component {
       case "inactive":
         return (
           <div id="oe-code-samples-container">
-            <Button
+            <LiveButton
               className="button-standard"
               color="primary"
               onClick={() => {
@@ -74,7 +75,7 @@ class OECodeSamplesList extends Component {
               variant="contained"
             >
               {this.props.sectionButtonLabel}
-            </Button>
+            </LiveButton>
           </div>
         );
       case "loading":

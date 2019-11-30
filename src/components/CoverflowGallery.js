@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Button, CircularProgress } from "@material-ui/core";
+import { CircularProgress } from "@material-ui/core";
 import { qryPostsFromPrintsCategory } from "./DataAccess/GetDataWPRESTAPI";
 import Coverflow from "react-coverflow";
 import OpenInNewIcon from "@material-ui/icons/OpenInNew";
+import LiveButton from "./LiveButton";
 
 class CoverflowGallery extends Component {
   state = {
@@ -42,7 +43,7 @@ class CoverflowGallery extends Component {
         return (
           <div id="coverflow-gallery-container">
             <React.Fragment>
-              <Button
+              <LiveButton
                 className="button-standard"
                 color="primary"
                 onClick={() => {
@@ -53,7 +54,7 @@ class CoverflowGallery extends Component {
                 variant="contained"
               >
                 {this.props.sectionButtonLabel}
-              </Button>
+              </LiveButton>
             </React.Fragment>
           </div>
         );

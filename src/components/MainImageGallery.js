@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Button, CircularProgress } from "@material-ui/core";
+import { CircularProgress } from "@material-ui/core";
 import { qryPostsFromPrintsCategory } from "./DataAccess/GetDataWPRESTAPI";
 import ImageGallery from "react-image-gallery";
 import OpenInNewIcon from "@material-ui/icons/OpenInNew";
+import LiveButton from "./LiveButton";
 
 class MainImageGallery extends Component {
   state = {
@@ -49,7 +50,7 @@ class MainImageGallery extends Component {
         return (
           <div id="image-gallery-container">
             <React.Fragment>
-              <Button
+              <LiveButton
                 className="button-standard"
                 color="primary"
                 onClick={() => {
@@ -60,7 +61,7 @@ class MainImageGallery extends Component {
                 variant="contained"
               >
                 {this.props.sectionButtonLabel}
-              </Button>
+              </LiveButton>
             </React.Fragment>
           </div>
         );
