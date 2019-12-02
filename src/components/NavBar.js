@@ -1,13 +1,19 @@
-import React, { Component } from 'react';
-import Copyright from './Copyright';
-import BGVideoSwitch from './BGVideoSwitch';
+import React, { Component } from "react";
+import Copyright from "./Copyright";
+import BGVideoSwitch from "./BGVideoSwitch";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  padding-right: 1em;
+`;
+
 class NavBar extends Component {
   render() {
     return (
-      <div className="nav">
+      <Wrapper className="nav">
         <Copyright />
-        <BGVideoSwitch />
-      </div>
+        <BGVideoSwitch className="ctl" title="Switch Video Background" />
+      </Wrapper>
     );
   }
 }

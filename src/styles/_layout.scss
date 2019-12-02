@@ -212,7 +212,6 @@ hr {
   @include text-shadow(1px, 1px, 1px, #000);
   height: 1.5em;
   padding: 0.2em 0.5em;
-  .ctl,
   .copyright {
     float: right;
     margin-left: 0.5em;
@@ -224,6 +223,9 @@ hr {
 }
 .kr-monogram {
   text-align: center;
+}
+.button {
+  cursor: pointer;
 }
 use.sprite__monogram {
   fill: $theme_light_body;

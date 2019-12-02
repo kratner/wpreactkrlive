@@ -6,7 +6,8 @@ class BGVideoSwitch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggle: true
+      toggle: true,
+      loadState: "inactive"
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -17,11 +18,13 @@ class BGVideoSwitch extends Component {
       this.state.videoSource
     );
   }
+  /*
   toggleBGVideoSwitch(isVisible) {
     document.getElementsByClassName(
       "ctl__bgvideoswitch"
     )[0].style.visibility = isVisible ? "visible" : "hidden";
   }
+  */
   state = {
     videoURLs: [],
     switchBackgroundVideo: {},
@@ -32,19 +35,25 @@ class BGVideoSwitch extends Component {
   // $('[data-ctl=bgvideoswitch]')
 
   componentDidMount() {
-    this.toggleBGVideoSwitch(false);
+    //this.toggleBGVideoSwitch(false);
     let appUrl = `${qryPostsFromLinksCategory}`;
     let arrVideoURLs = ["/img/20181215_154218.mp4"];
+    this.setState({
+      loadState: "loading"
+    });
     fetch(appUrl)
       .then(data => data.json())
       .then(data => {
+        this.setState({
+          loadState: "loaded"
+        });
         this.state.populateVideoURLArray(data);
         this.state.switchBackgroundVideo(
           this.state.videoURLs,
           this.state.videoElement,
           this.state.videoSource
         );
-        this.toggleBGVideoSwitch(true);
+        //this.toggleBGVideoSwitch(true);
       });
 
     this.setState({
@@ -73,18 +82,21 @@ class BGVideoSwitch extends Component {
     });
   }
   render() {
-    return (
-      <React.Fragment>
-        <span
-          data-ctl="bgvideoswitch"
-          className="ctl ctl__bgvideoswitch"
-          title="Switch Video Background"
-          onClick={this.handleClick}
-        >
-          <SwitchVideoIcon fontSize="large" />
-        </span>
-      </React.Fragment>
-    );
+    switch (this.state.loadState) {
+      case "inactive":
+        return <React.Fragment></React.Fragment>;
+      case "loading":
+        return <React.Fragment></React.Fragment>;
+      case "loaded":
+        return (
+          <React.Fragment>
+            <span {...this.props} onClick={this.handleClick}>
+              <SwitchVideoIcon fontSize="large" />
+            </span>
+          </React.Fragment>
+        );
+      default:
+    }
   }
 }
 

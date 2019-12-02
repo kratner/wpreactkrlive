@@ -4,7 +4,12 @@ import BGVideoSwitch from "../BGVideoSwitch";
 
 describe("BGVideoSwitch", () => {
   it("renders correctly", () => {
-    const wrapper = shallow(<BGVideoSwitch />);
+    const props = {
+      "data-ctl": "bgvideoswitch",
+      className: "ctl ctl__bgvideoswitch",
+      title: "Switch Video Background"
+    };
+    const wrapper = shallow(<BGVideoSwitch {...props} />);
     expect(wrapper).toMatchSnapshot();
   });
 });
