@@ -5,6 +5,8 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   padding-right: 1em;
+  position: fixed;
+  width: 100%;
 `;
 
 class NavBar extends Component {

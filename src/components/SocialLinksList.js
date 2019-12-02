@@ -41,7 +41,10 @@ class SocialLinksList extends Component {
     return (
       <div className="social-links" id="social-links-container">
         {listSocialLinks.length === 0 ? (
-          <LinearProgress className="progress" />
+          <React.Fragment>
+            <p>Loading Social Links...</p>
+            <LinearProgress className="progress" />
+          </React.Fragment>
         ) : (
           <ul>{listSocialLinks}</ul>
         )}

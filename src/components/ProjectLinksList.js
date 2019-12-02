@@ -43,6 +43,7 @@ class ProjectLinksList extends Component {
       case "loading":
         return (
           <div id="project-links-container">
+            <p>Loading Project Links...</p>
             <CircularProgress className="progress" />
           </div>
         );
