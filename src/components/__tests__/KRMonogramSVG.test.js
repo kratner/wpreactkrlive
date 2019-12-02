@@ -1,10 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
-import LiveButton from "../LiveButton";
+import KRMonogramSVG from "../KRMonogramSVG";
 
-describe("LiveButton", () => {
+describe("KRMonogramSVG", () => {
   it("renders correctly", () => {
-    const wrapper = shallow(<LiveButton />);
+    const wrapper = shallow(<KRMonogramSVG />);
     expect(wrapper).toMatchSnapshot();
   });
 });

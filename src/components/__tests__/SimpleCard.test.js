@@ -1,10 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
-import LiveButton from "../LiveButton";
+import SimpleCard from "../SimpleCard";
 
-describe("LiveButton", () => {
+describe("SimpleCard", () => {
   it("renders correctly", () => {
-    const wrapper = shallow(<LiveButton />);
+    const wrapper = shallow(<SimpleCard />);
     expect(wrapper).toMatchSnapshot();
   });
 });

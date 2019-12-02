@@ -1,10 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
-import LiveButton from "../LiveButton";
+import VideoBackground from "../VideoBackground";
 
-describe("LiveButton", () => {
+describe("VideoBackground", () => {
   it("renders correctly", () => {
-    const wrapper = shallow(<LiveButton />);
+    const wrapper = shallow(<VideoBackground />);
     expect(wrapper).toMatchSnapshot();
   });
 });

@@ -1,10 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
-import LiveButton from "../LiveButton";
+import Copyright from "../Copyright";
 
-describe("LiveButton", () => {
+describe("Copyright", () => {
   it("renders correctly", () => {
-    const wrapper = shallow(<LiveButton />);
+    const wrapper = shallow(<Copyright />);
     expect(wrapper).toMatchSnapshot();
   });
 });

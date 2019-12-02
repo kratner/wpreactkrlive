@@ -1,10 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
-import LiveButton from "../LiveButton";
+import BGVideoSwitch from "../BGVideoSwitch";
 
-describe("LiveButton", () => {
+describe("BGVideoSwitch", () => {
   it("renders correctly", () => {
-    const wrapper = shallow(<LiveButton />);
+    const wrapper = shallow(<BGVideoSwitch />);
     expect(wrapper).toMatchSnapshot();
   });
 });

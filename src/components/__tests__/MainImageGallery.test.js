@@ -1,10 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
-import LiveButton from "../LiveButton";
+import MainImageGallery from "../MainImageGallery";
 
-describe("LiveButton", () => {
+describe("MainImageGallery", () => {
   it("renders correctly", () => {
-    const wrapper = shallow(<LiveButton />);
+    const wrapper = shallow(<MainImageGallery />);
     expect(wrapper).toMatchSnapshot();
   });
 });
