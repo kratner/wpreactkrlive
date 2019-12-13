@@ -6,10 +6,14 @@ import OpenInNewIcon from "@material-ui/icons/OpenInNew";
 import LiveButton from "./LiveButton";
 
 class MainImageGallery extends Component {
-  state = {
-    images: [],
-    loadState: "inactive"
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      images: [],
+      loadState: "inactive"
+    };
+    this.numLoadedImages = 0;
+  }
 
   loadMainImageGallery() {
     let appUrl = `${qryPostsFromPrintsCategory}`;
@@ -24,6 +28,16 @@ class MainImageGallery extends Component {
           loadState: "loaded"
         });
       });
+  }
+
+  handleImageLoad(e) {
+    this.numLoadedImages++;
+    if (this.numLoadedImages === this.state.images.length) {
+      document.getElementById("imageGalleryLoadProgress").style.display =
+        "none";
+      document.getElementById("imageGalleryContainer").style.visibility =
+        "visible";
+    }
   }
 
   componentDidMount() {}
@@ -72,6 +86,13 @@ class MainImageGallery extends Component {
           </div>
         );
       case "loaded":
+        const progressStyle = {
+          position: "relative",
+          top: "3em"
+        };
+        const hiddenDivStyle = {
+          visibility: "hidden"
+        };
         return (
           <div id="image-gallery-container">
             <React.Fragment>
@@ -86,11 +107,19 @@ class MainImageGallery extends Component {
                   {this.props.galleryLinkText} <OpenInNewIcon />
                 </a>
               </p>
-              <ImageGallery
-                className="image-gallery"
-                items={images}
-                thumbnailPosition={this.props.thumbnailPosition}
-              />
+              <div id="imageGalleryLoadProgress">
+                <CircularProgress className="progress" style={progressStyle} />
+              </div>
+              <div style={hiddenDivStyle} id="imageGalleryContainer">
+                <ImageGallery
+                  onImageLoad={e => {
+                    this.handleImageLoad(e);
+                  }}
+                  className="image-gallery"
+                  items={images}
+                  thumbnailPosition={this.props.thumbnailPosition}
+                />
+              </div>
             </React.Fragment>
           </div>
         );

@@ -6,10 +6,14 @@ import OpenInNewIcon from "@material-ui/icons/OpenInNew";
 import LiveButton from "./LiveButton";
 
 class CoverflowGallery extends Component {
-  state = {
-    images: [],
-    loadState: "inactive"
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      images: [],
+      loadState: "inactive"
+    };
+    this.numLoadedImages = 0;
+  }
 
   loadImageData() {
     let appUrl = `${qryPostsFromPrintsCategory}`;
@@ -26,6 +30,22 @@ class CoverflowGallery extends Component {
       });
   }
 
+  incrementLoadedImages(thisRef) {
+    this.numLoadedImages++;
+    if (this.numLoadedImages === this.state.images.length) {
+      this.checkRenderInterval = setInterval(() => {
+        if (document.getElementById("coverflowgallery") !== null) {
+          document.getElementById("coverflowLoadProgress").style.display =
+            "none";
+          document.getElementById(
+            "coverflow-gallery-container"
+          ).style.visibility = "visible";
+          clearInterval(this.checkRenderInterval);
+        }
+      }, 500);
+    }
+  }
+
   componentDidMount() {}
 
   render() {
@@ -35,7 +55,13 @@ class CoverflowGallery extends Component {
       .map(node => {
         let title = node.title.rendered;
         let imageURL = node.jetpack_featured_media_url;
-        return <img src={imageURL} alt={title} />;
+        return (
+          <img
+            src={imageURL}
+            alt={title}
+            onLoad={this.incrementLoadedImages(this)}
+          />
+        );
       });
     // <img src='images/album-1.png' alt='Album one' data-action="https://facebook.github.io/react/"/>
     switch (this.state.loadState) {
@@ -65,9 +91,17 @@ class CoverflowGallery extends Component {
           </div>
         );
       case "loaded":
+        const hiddenDivStyle = { visibility: "hidden" };
+        const coverflowProgressStyle = {
+          position: "relative",
+          top: "3em"
+        };
         return (
-          <div id="coverflow-gallery-container">
-            <React.Fragment>
+          <React.Fragment>
+            <div id="coverflowLoadProgress" style={coverflowProgressStyle}>
+              <CircularProgress className="progress" />
+            </div>
+            <div id="coverflow-gallery-container" style={hiddenDivStyle}>
               <h3>{this.props.galleryTitle}</h3>
               <p>
                 <a
@@ -79,27 +113,28 @@ class CoverflowGallery extends Component {
                   {this.props.galleryLinkText} <OpenInNewIcon />
                 </a>
               </p>
-              <Coverflow
-                displayQuantityOfSide={2}
-                navigation={true}
-                enableHeading={true}
-                clickable={true}
-                media={{
-                  "@media (max-width: 900px)": {
-                    width: "600px",
-                    height: "300px"
-                  },
-                  "@media (min-width: 900px)": {
-                    width: "960px",
-                    height: "600px"
-                  }
-                }}
-                className="coverflow-gallery"
-              >
-                {images}
-              </Coverflow>
-            </React.Fragment>
-          </div>
+              <div id="coverflowgallery">
+                <Coverflow
+                  displayQuantityOfSide={2}
+                  navigation={true}
+                  enableHeading={true}
+                  clickable={true}
+                  media={{
+                    "@media (max-width: 900px)": {
+                      width: "600px",
+                      height: "300px"
+                    },
+                    "@media (min-width: 900px)": {
+                      width: "960px",
+                      height: "600px"
+                    }
+                  }}
+                >
+                  {images}
+                </Coverflow>
+              </div>
+            </div>
+          </React.Fragment>
         );
       default:
     }
