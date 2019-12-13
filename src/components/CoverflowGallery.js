@@ -52,11 +52,12 @@ class CoverflowGallery extends Component {
     let images = this.state.images
       // .filter(node => node.acf.type === "social")
       // .sort((a, b) => (a.acf.weight > b.acf.weight ? 1 : -1))
-      .map(node => {
+      .map((node, index) => {
         let title = node.title.rendered;
         let imageURL = node.jetpack_featured_media_url;
         return (
           <img
+            key={index}
             src={imageURL}
             alt={title}
             onLoad={this.incrementLoadedImages(this)}
@@ -121,7 +122,11 @@ class CoverflowGallery extends Component {
                   clickable={true}
                   media={{
                     "@media (max-width: 900px)": {
+                      /*
                       width: "600px",
+                      height: "300px"
+                      */
+                      width: "100vw",
                       height: "300px"
                     },
                     "@media (min-width: 900px)": {
