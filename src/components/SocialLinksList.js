@@ -32,7 +32,12 @@ class SocialLinksList extends Component {
               target={node.acf.target}
             >
               {node.acf.text}
-              <span className={"icon-" + node.acf.icon} />
+              <span
+                className={
+                  "icon-" +
+                  (node.acf.icon === "reverbnation" ? "music" : node.acf.icon)
+                }
+              />
             </a>
           </li>
         );
